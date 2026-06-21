@@ -1,0 +1,11 @@
+config {
+  type: "table",
+  schema: "gold"
+}
+
+SELECT
+  city,
+  COUNT(*) as users_count,
+  COUNTIF(favorite_activity = "Yoga") as yoga_users
+FROM ${ref("dim_users")}
+GROUP BY city
