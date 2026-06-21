@@ -1,0 +1,14 @@
+config {
+  type: "table",
+  schema: "silver"
+}
+
+SELECT
+  u.user_id,
+  u.name,
+  u.favorite_activity,
+  a.city,
+  a.country
+FROM ${ref("users")} u
+JOIN ${ref("addresses")} a
+ON u.user_id = a.user_id
